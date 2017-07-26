@@ -31,7 +31,7 @@ done
 for ((i=0; i<$cluster_size; i++)); do
     echo "Starting node $i"
 
-    docker run -d -p 920$i:9200 \
+    docker run -d -p 920$i:9200 -p 930$i:9300 \
         --name "$image$i" \
         --network "$network" \
         -v "$storage":/usr/share/elasticsearch/data \
